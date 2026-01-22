@@ -1,19 +1,15 @@
 .green {
-    border-width: 2px;
-    border-color: green;
+    border: 2px solid green;
 }
 
 .blue {
-    border-width: 2px;
-    border-color: blue;
+    border: 2px solid blue;
 }
 
 .orange {
-    border-width: 2px;
-    border-color: orange;
+    border: 2px solid orange;
 }
 
 .red {
-    border-width: 2px;
-    border-color: red;
+    border: 2px solid red;
 }

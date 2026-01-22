@@ -20,18 +20,31 @@ console.log(A_randomArray);
 const O_para = document.getElementById("paragraph-1");
 
 I_compteur = 0;
-(function loop() {
-    setTimeout(() => {
-        O_para.textContent = "";
-        O_para.textContent += A_randomArray[I_compteur] + " ";
-        I_compteur ++;
-        if (I_compteur < A_randomArray.length) {
-            loop();
-        }
-        else {
-            I_compteur = 0;
-            loop();
-        }
-    }, 2000);
-})();
+
+function changeParagraph() {
+    O_para.textContent = "";
+    O_para.textContent += A_randomArray[I_compteur] + " ";
+
+    if ( A_randomArray[I_compteur] <= 0 ) {
+        O_para.className = "blue";
+    }
+    else if ( 1 <= A_randomArray[I_compteur] && A_randomArray[I_compteur] <= 20 ) {
+        O_para.className = "green";
+    }
+    else if ( 21 <= A_randomArray[I_compteur] && A_randomArray[I_compteur] <= 30 ) {
+        O_para.className = "orange";
+    }
+    else {
+        O_para.className = "red";
+    }
+
+    I_compteur ++;
+    if (I_compteur === A_randomArray.length) {
+        I_compteur = 0;
+    }
+}
+
+let intervalId = setInterval(changeParagraph, 2000);
+
+
 
