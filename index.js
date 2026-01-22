@@ -12,4 +12,22 @@ function generateRandomArray(size, min, max) {
     return arr;
 }
 
-console.log(generateRandomArray(20, -10, 40));
+const A_randomArray = generateRandomArray(20, -10, 40);
+console.log(A_randomArray);
+
+// QUESTION 3
+
+const O_para = document.getElementById("paragraph-1");
+
+I_compteur = 0;
+(function loop() {
+    setTimeout(() => {
+        O_para.textContent = "";
+        I_compteur ++;
+        O_para.textContent += A_randomArray[I_compteur] + " ";
+        if (I_compteur < A_randomArray.length - 1) {
+            loop();
+        }
+    }, 2000);
+})();
+
