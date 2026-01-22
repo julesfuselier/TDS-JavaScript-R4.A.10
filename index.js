@@ -23,9 +23,13 @@ I_compteur = 0;
 (function loop() {
     setTimeout(() => {
         O_para.textContent = "";
-        I_compteur ++;
         O_para.textContent += A_randomArray[I_compteur] + " ";
-        if (I_compteur < A_randomArray.length - 1) {
+        I_compteur ++;
+        if (I_compteur < A_randomArray.length) {
+            loop();
+        }
+        else {
+            I_compteur = 0;
             loop();
         }
     }, 2000);
