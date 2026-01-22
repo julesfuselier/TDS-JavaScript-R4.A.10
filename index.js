@@ -8,7 +8,8 @@ A_data = {
     "mild-color" : "green",
     "warm-color" : "orange",
     "hot-color" : "red",
-    "hot-message" : "Caliente ! Vamos a la playa, ho hoho hoho !!"
+    "hot-message" : "Caliente ! Vamos a la playa, ho hoho hoho !!",
+    "type-of-temperature" : "°C"
 }
 
 function getRandomIntInclusive(min, max) {
@@ -33,22 +34,30 @@ console.log(A_randomArray);
 const O_para1 = document.getElementById("paragraph-1");
 const O_section = document.getElementById("section-1");
 const O_para2 = O_section.appendChild(document.createElement("paragraph-2"));
+const O_table = document.getElementById("table-1");
 
 I_compteur = 0;
+
+
 
 function changeParagraph() {
     O_para1.textContent = "";
     O_para2.textContent = "";
-    O_para1.textContent += A_randomArray[I_compteur] + " ";
+    const I_value = A_randomArray[I_compteur];
+    O_para1.textContent += I_value + " " + A_data["type-of-temperature"];
 
-    if ( A_randomArray[I_compteur] <= 0 ) {
+    const O_NewRow = O_table.insertRow()
+    O_NewRow.insertCell(0).textContent = I_compteur;
+    O_NewRow.insertCell(1).textContent = I_value;
+
+    if ( I_value <= 0 ) {
         O_para1.className = A_data["cold-color"];
         O_para2.textContent += A_data["cold-message"];
     }
-    else if ( 1 <= A_randomArray[I_compteur] && A_randomArray[I_compteur] <= 20 ) {
+    else if ( 1 <= I_value && I_value <= 20 ) {
         O_para1.className = A_data["mild-color"];
     }
-    else if ( 21 <= A_randomArray[I_compteur] && A_randomArray[I_compteur] <= 30 ) {
+    else if ( 21 <= I_value && I_value <= 30 ) {
         O_para1.className = A_data["warm-color"];
     }
     else {
@@ -60,6 +69,7 @@ function changeParagraph() {
     I_compteur ++;
     if (I_compteur === A_randomArray.length) {
         I_compteur = 0;
+        O_table.innerHTML = "";
     }
 }
 
