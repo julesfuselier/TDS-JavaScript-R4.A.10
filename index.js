@@ -44,10 +44,12 @@ function changeParagraph() {
     // O_para1.textContent = "";
     O_row.textContent = "";
     O_para2.textContent = "";
+    O_para2.setAttribute("role", "alert");
     const I_value = A_randomArray[I_compteur];
 
     const O_NewCell = O_row.insertCell(0);
     O_NewCell.textContent = I_value;
+    O_NewCell.ariaLive = "off";
     if (B_IS_TEMPERATURE ) {
         const O_NewCell2 = O_row.insertCell(1);
         O_NewCell2.textContent = A_data["type-of-temperature"];
@@ -61,17 +63,20 @@ function changeParagraph() {
     if ( I_value <= 0 ) {
         O_row.className = A_data["cold-color"];
         O_para2.textContent += A_data["cold-message"];
+        O_NewCell.ariaLive = "assertive";
     }
     else if ( 1 <= I_value && I_value <= 20 ) {
         O_row.className = A_data["mild-color"];
+        O_NewCell.ariaLive = "polite";
     }
     else if ( 21 <= I_value && I_value <= 30 ) {
         O_row.className = A_data["warm-color"];
+        O_NewCell.ariaLive = "polite";
     }
     else {
         O_row.className = A_data["hot-color"];
         O_para2.textContent += A_data["hot-message"];
-
+        O_NewCell.ariaLive = "assertive";
     }
 
     I_compteur ++;
