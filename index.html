@@ -6,16 +6,27 @@
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
-    <section id="section-1">
-        <h1 id="title-1">Hello World</h1>
-        <table>
-            <tr id="row-1">
-        </table>
+    <div class="tabs">
+        <h1 id="tablist-1">Temperatures</h1>
+        <div role="tablist" aria-labelledby="tablist-1" class="manual">
+            <button id="tab-1" type="button" role="tab" aria-selected="true" aria-controls="tab-panel-1">
+                <span class="focus">Temperature</span>
+            </button>
+            <button id="tab-2" type="button" role="tab" aria-selected="false" aria-controls="tab-panel-2" tabindex="-1">
+                <span class="focus">Historic</span>
+            </button>
+        </div>
+        <div id="tab-panel-1" role="tabpanel" aria-labelledby="tab-1">
+            <table>
+                <tr id="row-1">
+            </table>
+        </div>
+        <div id="tab-panel-2" role="tabpanel" aria-labelledby="tab-2">
+            <table id="table-1">
 
-        <table id="table-1">
-
-        </table>
-    </section>
+            </table>
+        </div>
+    </div>
 
 </body>
 <script src="index.js"></script>
