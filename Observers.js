@@ -8,7 +8,7 @@ export class CurrentValueObserver {
 
         const cellValue = this.rowElement.insertCell(0);
         cellValue.textContent = data.value;
-        cellValue.ariaLive = "off"; // Sera potentiellement écrasé par l'AlertObserver, ou géré ici
+        cellValue.ariaLive = "off";
 
         const cellUnit = this.rowElement.insertCell(1);
         cellUnit.textContent = data.config["type-of-temperature"];
