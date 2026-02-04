@@ -1,4 +1,4 @@
-class Tabs {
+export class Tabs {
     constructor(groupNode) {
         this.tablistNode = groupNode;
 
