@@ -28,6 +28,19 @@ sensor.subscribe(historyObs);
 
 sensor.start();
 
+const jsonText = `{
+   "capteurs": [
+    {
+      "type": "Thermique",
+      "Nom":  "Interieur",
+      "Valeur": "20",
+      "Timestamp": 1700000000
+    }
+  ]
+}`;
+
+console.log(JSON.parse(jsonText));
+
 window.addEventListener('load', function () {
     var tablists = document.querySelectorAll('[role=tablist].manual');
     for (var i = 0; i < tablists.length; i++) {
